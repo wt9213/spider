@@ -1,0 +1,22 @@
+{
+  "name": "spider",
+  "version": "1.0.0",
+  "description": "PhantomJS,seo,node\r 解决前端框架js渲染页面导致 百度seo问题，部分搜索引擎支持可以识别js渲染内容如google",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wt9213/spider.git"
+  },
+  "author": "wt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wt9213/spider/issues"
+  },
+  "homepage": "https://github.com/wt9213/spider#readme",
+  "devDependencies": {
+    "phantomjs-prebuilt": "^2.1.16"
+  }
+}
