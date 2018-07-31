@@ -60,7 +60,7 @@ if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
         });
     },1000);
 }else{
-    console.log('无可用spiderUrl');
+    console.log('无可用spiderUrl，請檢查配置項');
     phantom.exit();
 }
 
