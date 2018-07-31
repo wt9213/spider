@@ -4,6 +4,9 @@ PhantomJS,seo,node
 相关内容 https://www.juhe.cn/news/index/id/680
 
 
+url.config.json/url.config.js 存放你需要爬取的页面url配置
+执行 npm run spider  
+后會把爬取到的頁面截圖并且存一份靜態的html到 get 文價夾下  
 
-执行 phantom.js 
-npm run phantom   
+
+該爬蟲可以做更多事，需要你在page.evaluate做額外操作
