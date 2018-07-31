@@ -8,6 +8,7 @@ var spiderUrl = require('./url.config.json').spiderUrl;   //读取json url 方�
 // var spiderUrl= require('./url.config').spiderUrl;   //js module.exports 导出方式
 // console.log("==>>>",JSON.stringify(spiderUrl));
 
+var time = new Date();
 var failog={  //失敗日志
     url:"",
     count:0
@@ -31,7 +32,8 @@ if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
         urlIndex++;
         if(urlIndex > spiderUrl.length){
             clearInterval(spiderCircle);
-            // page.close();   //关闭网页
+            console.log(new Date() - time);
+            page.close();   //关闭网页
             phantom.exit();   //退出phantomjs命令行
         }
         page.open(spiderUrl[index], function(status) {
