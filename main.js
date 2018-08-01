@@ -32,7 +32,7 @@ if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
         urlIndex++;
         if(urlIndex > spiderUrl.length){
             clearInterval(spiderCircle);
-            console.log(new Date() - time);
+            console.log("用时: "+new Date() - time);
             page.close();   //关闭网页
             phantom.exit();   //退出phantomjs命令行
         }
@@ -57,7 +57,7 @@ if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
                 return document.title;
             });
             page.render('get/'+title+'.png');   //生成html页面图片
-            console.log('==>>> Page title is ' + title);
+            console.log('==>>> page title is ' + title);
             var file = fs.open('get/'+title+'.html', 'a');
             file.write(page.content);   //保存html
             file.close();

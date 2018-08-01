@@ -1,9 +1,19 @@
 {
     "spiderUrl":[
-        "https://www.sme.vip/loan/list",
         "https://www.zwdai.com/",
+        "https://www.sme.vip/",
+        "https://www.sme.vip/loan/list",
+        "https://www.sme.vip/guide/loan",
+        "https://www.sme.vip/login",
+        "https://www.sme.vip/register",
+        "https://www.sme.vip/loan/detail?categoryId=20001",
+        "https://www.sme.vip/loan/detail?categoryId=20002",
+        "https://www.sme.vip/loan/detail?categoryId=20003",
+        "https://www.sme.vip/loan/detail?categoryId=20004",
         "https://www.tmall.com/",
         "https://www.jd.com",
-        "https://www.sme.vip/"
+        "https://www.baidu.com/",
+        "http://www.ewoho.com/",
+        "http://www.eqoho.com/"
     ]
 }
