@@ -15,16 +15,19 @@ var failog={  //失敗日志
 };
 
 page.onLoadStarted =function() {
-    loadInProgress =true;
-    // console.log("load started");
+    var currentUrl = page.evaluate(function() {
+        return window.location.href;
+    });
 };
-page.onLoadFinished = function() {
-    loadInProgress = false;
-    // console.log("load finished");
+page.onLoadFinished = function(status) {
+    // if(status=='fail'){
+    //     console.log("load finished, status:"+status,(urlIndex-1));
+    // }
 };
 page.onUrlChanged = function() {
     // console.log("onUrlChanged");
 };
+
 
 if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
     var spiderCircle = setInterval(function(){
@@ -33,8 +36,8 @@ if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
         if(index >= spiderUrl.length){
             clearInterval(spiderCircle);
             console.log("用时: ",new Date() - time);
-            // page.close();   //关闭网页
-            // phantom.exit();   //退出phantomjs命令行
+            page.close();   //关闭网页
+            phantom.exit();   //退出phantomjs命令行
         }else{
             console.log(index);
             page.open(spiderUrl[index], function(status) {
@@ -64,7 +67,7 @@ if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
                 file.close();
             });
         }
-    },2000);  
+    },2700);  
 }else{
     console.log('无可用spiderUrl，請檢查配置項');
     phantom.exit();
