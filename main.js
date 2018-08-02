@@ -2,6 +2,8 @@ var webpage = require('webpage');
 var page = webpage.create();
 var fs = require('fs');
 
+// phantom.outputEncoding="utf-8";//指定编码方式
+
 var urlIndex = 0;
 //获取需要爬取的url页面地址
 var spiderUrl = require('./url.config.json').spiderUrl;   //读取json url 方式
@@ -13,6 +15,8 @@ var failog={  //失敗日志
     url:"",
     count:0
 };
+
+// http://phantomjs.org & http://phantomjs.org/api/      官方文档
 
 page.onLoadStarted =function() {
     var currentUrl = page.evaluate(function() {
@@ -36,8 +40,8 @@ if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
         if(index >= spiderUrl.length){
             clearInterval(spiderCircle);
             console.log("用时: ",new Date() - time);
-            page.close();   //关闭网页
-            phantom.exit();   //退出phantomjs命令行
+            page.close();   // 关闭网页
+            phantom.exit();   // 退出phantomjs命令行
         }else{
             console.log(index);
             page.open(spiderUrl[index], function(status) {
@@ -56,14 +60,14 @@ if(Array.isArray(spiderUrl)&&spiderUrl.length>0){
                     return;
                 }
                 console.log("success ==>>> spider: "+spiderUrl[index]);
-                var title = page.evaluate(function() {   //可执行js操作
+                var title = page.evaluate(function() {   // 可执行js操作
                     window.scrollTo(0,document.body.scrollHeight);
                     return document.title;
                 });
-                page.render('get/'+title+'.png');   //生成html页面图片
+                page.render('get/'+title+'.png');   // 生成html页面图片
                 console.log('page title is ' + title);
                 var file = fs.open('get/'+title+'.html', 'a');
-                file.write(page.content);   //保存html
+                file.write(page.content);   // 保存html
                 file.close();
             });
         }
